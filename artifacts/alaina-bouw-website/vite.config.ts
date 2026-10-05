@@ -60,10 +60,13 @@ export default defineConfig({
     fs: {
       strict: true,
     },
+    // Stuurt het formulier (/api) naar de lokale API-server tijdens ontwikkeling.
+    proxy: { '/api': process.env.API_URL ?? 'http://localhost:8080' },
   },
   preview: {
     port,
     host: '0.0.0.0',
     allowedHosts: true,
+    proxy: { '/api': process.env.API_URL ?? 'http://localhost:8080' },
   },
 });

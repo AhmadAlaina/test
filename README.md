@@ -25,6 +25,10 @@ Diensten, projectfoto's en de werkwijze staan in hetzelfde bestand.
 ```bash
 pnpm install
 pnpm --filter @workspace/alaina-bouw-website run dev      # website op http://localhost:5173
+
+# Voor het formulier: API + database (de website stuurt /api door naar poort 8080)
+DATABASE_URL=postgres://... pnpm --filter @workspace/db run push-force
+DATABASE_URL=postgres://... PORT=8080 pnpm --filter @workspace/api-server run dev
 ```
 
 ## Productie-build
